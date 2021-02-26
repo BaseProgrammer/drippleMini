@@ -4,8 +4,19 @@ A 64 bit operating system made from scratch, using Assembly & C-lang to create k
 **Current version:** `1.0.0-public`
 
 # Running Guide
-| :exclamation:  This is very important   |
-|-----------------------------------------|
+| :exclamation:  This is very important!   |
+|------------------------------------------|
+
+## THIS HAS NEVER BEEN TESTED ON A DUAL BOOT OR AN ACTUAL BOOT! THIS HAS ONLY BEEN TESTED ON QEMU SO RUNNING THIS IS YOUR RESPONSIBILITY
+Moving on, to run this, make sure you have installed **[qemu](https://www.qemu.org/)** to run this image file and **git** to download this repository. Once that has been installed, you can run the following file on Linux & if you are not on Linux or MacOS, you can install WSL on Windows. For other operating systems like FreeBSD, it has never been tried on.
+
+```
+$ git clone https://github.com/BaseProgrammer/drippleMini   # Download repo
+$ cd drippleMini/                                           # Change directory to repo
+$ qemu-system-i386 -fda drippleOS.bin                       # Run it
+```
+
+Additionally if the `qemu-system-i386` command doesn't work, the presumably alternative way to solve this is by just running `qemu -fda drippleOS.bin`
 
 ### How can I create my own OS?
 One of the main GitHub repositories that helped me quite a lot is the [os-tutorial](https://github.com/cfenollosa/os-tutorial/) one, made by [cfenollosa](https://github.com/cfenollosa). It quite briefly explains what each commands are, in Assembly and how to use them; I also recommend learning the basics of Assembly.
