@@ -1,6 +1,6 @@
 # drippleMini OS
 
-A 64 bit operating system made from scratch, using Assembly & C-lang to create kernels and other stuff. 
+A 32 bit operating system made from scratch, using Assembly & C-lang to create kernels and other stuff. 
 **Current version:** `1.0.0-public`
 
 # Running Guide
