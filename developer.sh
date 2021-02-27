@@ -11,14 +11,13 @@ nasm os/kernel_entry.asm -f elf -o bin/kernel_entry.o
 # Convert "bootsect.asm" to a bin file
 nasm os/bootsect.asm -f bin -o bin/bootsect.bin
 
+# Create .o files from c files
+sudo make os/kernel os/drivers
+
 # Linker the files into a bin file
-sudo ${ld} -o kernel.bin -Ttext 0x1000 --oformat binary bin/kernel_entry.o bin/kernel.o bin/ports.o bin/screen.o
+#sudo ${ld} -o bin/kernel.bin -Ttext 0x1000 --oformat binary bin/kernel_entry.o bin/kernel.o bin/ports.o bin/screen.o
 
 
-
-
-cd bin/
 cat bin/bootsect.bin bin/kernel.bin > drippleos.bin
-mv drippleos.bin ../
-cd ../
+
 qemu-system-i386 -fda drippleos.bin
