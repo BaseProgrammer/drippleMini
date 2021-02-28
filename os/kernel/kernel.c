@@ -9,7 +9,8 @@
 #include "../cpu/timer.h"
 #include "../drivers/keyboard.h"
 
-void main() {
+void main()
+{
     isr_install();
 
     asm volatile("sti");
