@@ -12,7 +12,7 @@ nasm os/kernel_entry.asm -f elf -o bin/kernel_entry.o
 nasm os/bootsect.asm -f bin -o bin/bootsect.bin
 
 # Create .o files from c files
-sudo make os/kernel os/drivers
+sudo make kernel.bin
 
 # Linker the files into a bin file
 #sudo ${ld} -o bin/kernel.bin -Ttext 0x1000 --oformat binary bin/kernel_entry.o bin/kernel.o bin/ports.o bin/screen.o

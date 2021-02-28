@@ -27,7 +27,7 @@ load_kernel:
     call print_nl
 
     mov bx, KERNEL_OFFSET 
-    mov dh, 16
+    mov dh, 31
     mov dl, [BOOT_DRIVE]
     call load_disk
     ret
@@ -43,6 +43,8 @@ BOOT_DRIVE db 0
 WARN_REAL_MODE db "Current: 16bit Real Mode", 0
 WARN_PROT_MODE db "Current: 32bit Protected Mode", 0
 WARN_LOAD_KERNEL db "Current: Loading kernel into memory", 0
+WARN_RETURNED_KERNEL db "Returned from kernel. Error?", 0
+
 
 times 510 - ($-$$) db 0
 dw 0xaa55

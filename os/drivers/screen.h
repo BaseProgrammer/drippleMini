@@ -1,3 +1,10 @@
+/*
+    drippleMini OS (C) 2021
+    LICENSE @ ROOT DIRECTORY
+    github_url: https://github.com/BaseProgrammer/drippleMini
+
+*/
+
 #define VIDEO_ADDRESS 0xb8000
 #define MAX_ROWS 25
 #define MAX_COLS 80
