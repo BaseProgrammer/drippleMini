@@ -26,13 +26,31 @@ void user_input(char *input)
         kprint("Stopping the CPU. Bye!\n");
         asm volatile("hlt");
     }
-
-    if (strcmp(input, "CLEAR") == 0)
-    {
+    else if (strcmp(input, "CLEAR") == 0)
         clear_screen();
-    }
 
-    kprint("You have entered: ");
-    kprint(input);
+    else if (strcmp(input, "HELP") == 0)
+        kprint("CLEAR\nEND\nHELP\nPAGE\nSAY 'MESSAGE'");
+
+    else if (strcmp(input, "SAY") == 0)
+        kprint(input + 4);
+
+    else if (strcmp(input, "PAGE") == 0)
+    {
+        u32 physical_address;
+        u32 page = kmalloc(1000, 1, &physical_address);
+        char page_string[16] = "";
+        asciiHexConverter(page, page_string);
+        char physical_string[16] = "";
+        asciiHexConverter(physical_address, physical_string);
+        kprint("Page: ");
+        kprint(page_string);
+        kprint(", physical address: ");
+        kprint(physical_string);
+        kprint("\n");
+    }
+    else
+        kprint("shell: unknown command");
+
     kprint("\n> ");
 }

@@ -9,6 +9,7 @@
 #define STRINGS_H
 
 void asciiIntConverter(int n, char str[]);
+void asciiHexConverter(int n, char str[]);
 void reverse(char s[]);
 int strlen(char s[]);
 void backspace(char s[]);

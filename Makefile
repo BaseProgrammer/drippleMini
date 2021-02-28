@@ -8,7 +8,7 @@ GDB = /usr/local/i386elfgcc/bin/i386-elf-gdb
 LD = /usr/local/i386elfgcc/bin/i386-elf-ld
 
 CFLAGS = -g -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs \
-		 -Wall -Wextra -Werror
+		 -Wall -Wextra
 
 drippleos.bin: bin/bootsect.bin kernel.bin
 	mv kernel.bin bin/

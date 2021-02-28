@@ -8,7 +8,7 @@
 #ifndef ISR_H
 #define ISR_H
 
-#include "types.h"
+#include "type.h"
 
 // 32 CPU Exceptions for ISRs
 extern void isr0();
