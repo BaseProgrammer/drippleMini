@@ -5,11 +5,9 @@
 
 */
 
-#ifndef TIMER_H
-#define TIMER_H
+#ifndef KERNEL_H
+#define KERNEL_H
 
-#include "types.h"
-
-void init_timer(u32 frequency);
+void user_input(char *input);
 
 #endif

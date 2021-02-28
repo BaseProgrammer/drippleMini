@@ -5,23 +5,7 @@
 
 */
 
-#include "util.h"
-
-void memory_copy(char *source, char *dest, int nbytes)
-{
-    int i;
-    for (i = 0; i < nbytes; i++)
-    {
-        *(dest + i) = *(source + i);
-    }
-}
-
-void memory_set(u8 *dest, u8 value, u32 length)
-{
-    u8 *temp = (u8 *)dest;
-    for (; length != 0; length--)
-        *temp++ = value;
-}
+#include "string.h"
 
 void asciiIntConverter(int n, char str[])
 {
@@ -37,6 +21,8 @@ void asciiIntConverter(int n, char str[])
     if (sign < 0)
         str[i++] = '-';
     str[i] = '\0';
+
+    reverse(str);
 }
 
 void reverse(char s[])
@@ -56,4 +42,28 @@ int strlen(char s[])
     while (s[i] != '\0')
         ++i;
     return i;
+}
+
+void append(char s[], char n)
+{
+    int len = strlen(s);
+    s[len] = n;
+    s[len + 1] = '\0';
+}
+
+void backspace(char s[])
+{
+    int len = strlen(s);
+    s[len - 1] = '\0';
+}
+
+int strcmp(char s1[], char s2[])
+{
+    int i;
+    for (i = 0; s1[i] == s2[i]; i++)
+    {
+        if (s1[i] == '\0')
+            return 0;
+    }
+    return s1[i] - s2[i];
 }

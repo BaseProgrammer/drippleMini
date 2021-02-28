@@ -1,13 +1,17 @@
-C_SOURCES = $(wildcard os/kernel/*.c os/drivers/*.c os/cpu/*.c)
-HEADERS = $(wildcard os/kernel/*.h os/drivers/*.h os/cpu/*.h)
+C_SOURCES = $(wildcard os/kernel/*.c os/drivers/*.c os/cpu/*.c os/libc/*.c)
+HEADERS = $(wildcard os/kernel/*.h os/drivers/*.h os/cpu/*.h os/libc/*.h)
+# Nice syntax for file extension replacement
 OBJ = ${C_SOURCES:.c=.o os/cpu/interrupt.o} 
 
 CC = /usr/local/i386elfgcc/bin/i386-elf-gcc
 GDB = /usr/local/i386elfgcc/bin/i386-elf-gdb
 LD = /usr/local/i386elfgcc/bin/i386-elf-ld
-CFLAGS = -g
 
-drippleos.bin: bin/bootsect.bin bin/kernel.bin
+CFLAGS = -g -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs \
+		 -Wall -Wextra -Werror
+
+drippleos.bin: bin/bootsect.bin kernel.bin
+	mv kernel.bin bin/
 	cat $^ > drippleos.bin
 
 kernel.bin: bin/kernel_entry.o ${OBJ}
@@ -33,4 +37,4 @@ debug: drippleos.bin bin/kernel.elf
 	nasm $< -f bin -o $@
 
 clean:
-	rm -rf bin/*.o bin/*.bin os/cpu/*.o *.o *.bin *.elf os/kernel/*.bin os/drivers/*.o drippleos.bin *.dis *.bin
+	rm -rf bin/*.o bin/*.bin os/cpu/*.o *.o *.bin *.elf os/kernel/*.bin os/drivers/*.o drippleos.bin *.dis *.bin os/lib/*.o os/libc/*.o

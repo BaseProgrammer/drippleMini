@@ -5,16 +5,14 @@
 
 */
 
-#ifndef UTIL_H
-#define UTIL_H
+#ifndef STRINGS_H
+#define STRINGS_H
 
-#include "../cpu/types.h"
-
-void memory_copy(char *source, char *dest, int nbytes);
-void memory_set(u8 *dest, u8 value, u32 length);
 void asciiIntConverter(int n, char str[]);
-
 void reverse(char s[]);
 int strlen(char s[]);
+void backspace(char s[]);
+void append(char s[], char n);
+int strcmp(char s1[], char s2[]);
 
 #endif
