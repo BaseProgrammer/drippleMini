@@ -17,7 +17,6 @@ sudo make kernel.bin
 # Linker the files into a bin file
 #sudo ${ld} -o bin/kernel.bin -Ttext 0x1000 --oformat binary bin/kernel_entry.o bin/kernel.o bin/ports.o bin/screen.o
 
-
-cat bin/bootsect.bin bin/kernel.bin > drippleos.bin
+cat bin/bootsect.bin bin/kernel.bin >drippleos.bin
 
 qemu-system-i386 -fda drippleos.bin
