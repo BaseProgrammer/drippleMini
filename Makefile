@@ -1,6 +1,6 @@
-C_SOURCES = $(wildcard os/kernel/*.c os/drivers/*.c os/cpu/*.c os/libc/*.c)
-HEADERS = $(wildcard os/kernel/*.h os/drivers/*.h os/cpu/*.h os/libc/*.h)
-OBJ = ${C_SOURCES:.c=.o os/cpu/interrupt.o} 
+C_SOURCES = $(wildcard src/kernel/*.c src/drivers/*.c src/cpu/*.c src/libc/*.c)
+HEADERS = $(wildcard src/kernel/*.h src/drivers/*.h src/cpu/*.h src/libc/*.h)
+OBJ = ${C_SOURCES:.c=.o srccpu/interrupt.o} 
 
 CC = /usr/local/i386elfgcc/bin/i386-elf-gcc
 GDB = /usr/local/i386elfgcc/bin/i386-elf-gdb
@@ -34,4 +34,4 @@ debug: drippleos.bin bin/kernel.elf
 	nasm $< -f bin -o $@
 
 clean:
-	rm -rf bin/*.o bin/*.bin os/cpu/*.o *.o *.bin *.elf os/kernel/*.bin os/drivers/*.o drippleos.bin *.dis *.bin os/lib/*.o os/libc/*.o
+	rm -rf bin/*.o bin/*.bin src/cpu/*.o *.o *.bin *.elf src/kernel/*.bin src/drivers/*.o drippleos.bin *.dis *.bin src/lib/*.o src/libc/*.o os/drippleos.bin

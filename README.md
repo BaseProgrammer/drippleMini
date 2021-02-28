@@ -13,17 +13,10 @@ Moving on to run this, make sure you have installed **[qemu](https://www.qemu.or
 ```
 $ git clone https://github.com/BaseProgrammer/drippleMini   # Download repo
 $ cd drippleMini/                                           # Change directory to repo
-$ cat bin/bootsect.bin bin/kernel.bin > drippleos.bin       # Merge into one file
-$ qemu-system-i386 -fda drippleos.bin                       # Run it
+$ qemu-system-i386 -fda os/drippleos.bin                    # Run it
 ```
 
 Additionally if the `qemu-system-i386` command doesn't work, the presumably alternative way to solve this is by just running `qemu -fda drippleos.bin`
-
-### What's New?
-
-- Kernel Allocator
-
-### FILE SYSTEM SOON!
 
 ### How can I create my own OS?
 One of the main GitHub repositories that helped me quite a lot is the [os-tutorial](https://github.com/cfenollosa/os-tutorial/) one, made by [cfenollosa](https://github.com/cfenollosa). It quite briefly explains what each commands are, in Assembly and how to use them; I also recommend learning the basics of Assembly.
