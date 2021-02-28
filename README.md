@@ -21,14 +21,9 @@ Additionally if the `qemu-system-i386` command doesn't work, the presumably alte
 
 ### What's New?
 
-- Video scroll
-- Shell
-- Text output
-- Updated drip-kernel
+- Kernel Allocator
 
-### What's coming next?
-- Kernel Memory Allocator
-- A ton more (can't be fitted here)
+### FILE SYSTEM SOON!
 
 ### How can I create my own OS?
 One of the main GitHub repositories that helped me quite a lot is the [os-tutorial](https://github.com/cfenollosa/os-tutorial/) one, made by [cfenollosa](https://github.com/cfenollosa). It quite briefly explains what each commands are, in Assembly and how to use them; I also recommend learning the basics of Assembly.
