@@ -10,7 +10,7 @@
 #include "ports.h"
 #include "../libc/function.h"
 
-u32 tick = 0;
+uint32_t tick = 0;
 
 static void timer_callback(registers_t regs)
 {
@@ -18,14 +18,14 @@ static void timer_callback(registers_t regs)
     UNUSED(regs);
 }
 
-void init_timer(u32 frequency)
+void init_timer(uint32_t frequency)
 {
     register_interrupt_handler(IRQ0, timer_callback);
 
     // PIT value: hardware clock at 1193180 Hz
-    u32 divisor = 1193180 / frequency;
-    u8 low = (u8)(divisor & 0xFFF);
-    u8 high = (u8)((divisor >> 8) & 0xFFF);
+    uint32_t divisor = 1193180 / frequency;
+    uint8_t low = (uint8_t)(divisor & 0xFFF);
+    uint8_t high = (uint8_t)((divisor >> 8) & 0xFFF);
 
     port_byte_out(0x43, 0x36);
     port_byte_out(0x40, low);

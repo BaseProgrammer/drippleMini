@@ -1,14 +1,11 @@
 C_SOURCES = $(wildcard os/kernel/*.c os/drivers/*.c os/cpu/*.c os/libc/*.c)
 HEADERS = $(wildcard os/kernel/*.h os/drivers/*.h os/cpu/*.h os/libc/*.h)
-# Nice syntax for file extension replacement
 OBJ = ${C_SOURCES:.c=.o os/cpu/interrupt.o} 
 
 CC = /usr/local/i386elfgcc/bin/i386-elf-gcc
 GDB = /usr/local/i386elfgcc/bin/i386-elf-gdb
 LD = /usr/local/i386elfgcc/bin/i386-elf-ld
-
-CFLAGS = -g -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs \
-		 -Wall -Wextra
+CFLAGS = -g -ffreestanding -Wall -Wextra -fno-exceptions -m32
 
 drippleos.bin: bin/bootsect.bin kernel.bin
 	mv kernel.bin bin/

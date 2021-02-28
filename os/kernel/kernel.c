@@ -9,11 +9,16 @@
 #include "../drivers/screen.h"
 #include "kernel.h"
 #include "../libc/string.h"
+#include "../libc/mem.h"
+#include <stdint.h>
 
-void main()
+void kernel_main()
 {
     isr_install();
     irq_install();
+
+    asm("int $2");
+    asm("int $3");
 
     kprint("Type something, it will go through the kernel\n"
            "Type END to halt the CPU\n> ");
@@ -37,8 +42,8 @@ void user_input(char *input)
 
     else if (strcmp(input, "PAGE") == 0)
     {
-        u32 physical_address;
-        u32 page = kmalloc(1000, 1, &physical_address);
+        uint32_t physical_address;
+        uint32_t page = kmalloc(1000, 1, &physical_address);
         char page_string[16] = "";
         asciiHexConverter(page, page_string);
         char physical_string[16] = "";
