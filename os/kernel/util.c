@@ -38,3 +38,22 @@ void asciiIntConverter(int n, char str[])
         str[i++] = '-';
     str[i] = '\0';
 }
+
+void reverse(char s[])
+{
+    int a, b, c;
+    for (b = 0, c = strlen(s) - 1; b < c; b++, c--)
+    {
+        a = s[b];
+        s[b] = s[c];
+        s[c] = a;
+    }
+}
+
+int strlen(char s[])
+{
+    int i = 0;
+    while (s[i] != '\0')
+        ++i;
+    return i;
+}

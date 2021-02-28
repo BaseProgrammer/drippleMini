@@ -14,4 +14,7 @@ void memory_copy(char *source, char *dest, int nbytes);
 void memory_set(u8 *dest, u8 value, u32 length);
 void asciiIntConverter(int n, char str[]);
 
+void reverse(char s[]);
+int strlen(char s[]);
+
 #endif
