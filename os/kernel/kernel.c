@@ -26,6 +26,12 @@ void user_input(char *input)
         kprint("Stopping the CPU. Bye!\n");
         asm volatile("hlt");
     }
+
+    if (strcmp(input, "CLEAR") == 0)
+    {
+        clear_screen();
+    }
+
     kprint("You have entered: ");
     kprint(input);
     kprint("\n> ");
